@@ -7,10 +7,13 @@ def get_generator(number_len: int, seed: int):
     This is generator that generates pseudorandom numbers using
     middle-square method
 
-    Arguments:
-        number_len - len of numbers to generate
-        seed - seed used to randomize generated numbers(the len must
-            equal to number_len)
+    Parameters
+    ----------
+    number_len : int
+        len of numbers to generate
+    seed : int
+        seed used to randomize generated numbers(the len must equal
+        to number_len)
     '''
 
     # All returned numbers should be saved because first time when returned
