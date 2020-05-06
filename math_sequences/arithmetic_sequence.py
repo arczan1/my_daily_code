@@ -21,12 +21,25 @@ class ArithmeticSequence:
     def __getitem__(self, n: int) -> float:
         """Returns nth element of sequence(first index is 1 not 0!)"""
 
+        # Wrong argument
         if not isinstance(n, int):
             raise TypeError("index must be integer")
         elif n < 1:
             raise IndexError("index must be greater or equeal  to 1")
 
         return self.first_element + self.diff * (n - 1)
+
+    def sum(self, n: int) -> float:
+        """Return sum of the first n elements"""
+
+        # Wrong argument
+        if not isinstance(n, int):
+            raise TypeError("n argument must be integer")
+        elif n <= 0:
+            return 0
+
+        # Sum = ((2*a1) + (n-1) * r) * (n / 2)
+        return ((2 * self.first_element) + (n - 1) * self.diff) * (n / 2)
 
 
 if __name__ == "__main__":
@@ -36,7 +49,8 @@ if __name__ == "__main__":
     # Print first sequence
     for i in range(10):
         print("{} ".format(seq1[i+1]))
-    print("")
+    print("Sum: {}".format(seq1.sum(10)))
     # Print second sequence
     for i in range(10):
         print("{} ".format(seq2[i+1]))
+    print("Sum: {}".format(seq2.sum(10)))
